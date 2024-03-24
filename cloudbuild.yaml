@@ -8,7 +8,9 @@ steps:
   - name: 'gcr.io/cloud-builders/kubectl'
     args: ['apply', '-f', 'parth-k8s.yaml', '-n', 'parth-kubes']
     env:
-      - 'CLOUDSDK_COMPUTE_ZONE=northamerica-northeast1-a'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=parth-cluster'
+      - 'CLOUDSDK_COMPUTE_REGION=northamerica-northeast1-a'
+      - 'CLOUDSDK_CORE_PROJECT=csci-5409-cc-418214'
 
 images:
   - 'northamerica-northeast1-docker.pkg.dev/csci-5409-cc-418214/container1/parth-container1-image:latest'
