@@ -1,11 +1,11 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'northamerica-northeast1-docker.pkg.dev/csci-5409-cc-418214/container1/parth-container1-image:$COMMIT_SHA', '.']
+    args: ['build', '-t', 'northamerica-northeast1-docker.pkg.dev/csci-5409-cc-418214/container1/parth-container1-image:latest', '.']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'northamerica-northeast1-docker.pkg.dev/csci-5409-cc-418214/container1/parth-container1-image:$COMMIT_SHA']
+    args: ['push', 'northamerica-northeast1-docker.pkg.dev/csci-5409-cc-418214/container1/parth-container1-image:latest']
 
 images:
-  - 'northamerica-northeast1-docker.pkg.dev/csci-5409-cc-418214/container1/parth-container1-image:$COMMIT_SHA'
+  - 'northamerica-northeast1-docker.pkg.dev/csci-5409-cc-418214/container1/parth-container1-image:latest'
 
 options:
   logging: CLOUD_LOGGING_ONLY
