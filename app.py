@@ -22,7 +22,7 @@ def store_file():
     if not file_data:
         logging.error("Invalid JSON input: 'data' key is missing.")
         return jsonify(file=None, error="Invalid JSON input."), 400
-
+ 
     file_path = f'/parth_PV_dir/{filename}'
     try:
         file_data = "\n".join([line.replace(", ", ",").strip() for line in file_data.split("\n")])
