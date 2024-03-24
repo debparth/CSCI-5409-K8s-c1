@@ -3,6 +3,12 @@ steps:
     args: ['build', '-t', 'northamerica-northeast1-docker.pkg.dev/csci-5409-cc-418214/container1/parth-container1-image:latest', '.']
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'northamerica-northeast1-docker.pkg.dev/csci-5409-cc-418214/container1/parth-container1-image:latest']
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['container', 'clusters', 'get-credentials', 'parth-cluster', '--region', 'northamerica-northeast1-a', '--project', 'csci-5409-cc-418214']
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args: ['apply', '-f', 'parth-k8s.yaml', '-n', 'parth-kubes']
+    env:
+      - 'CLOUDSDK_COMPUTE_ZONE=northamerica-northeast1-a'
 
 images:
   - 'northamerica-northeast1-docker.pkg.dev/csci-5409-cc-418214/container1/parth-container1-image:latest'
