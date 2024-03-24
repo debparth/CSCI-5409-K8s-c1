@@ -25,6 +25,7 @@ def store_file():
 
     file_path = f'/parth_PV_dir/{filename}'
     try:
+        file_data = "\n".join([line.replace(", ", ",").strip() for line in file_data.split("\n")])
         with open(file_path, mode='w') as file:
             file.write(file_data)
         logging.info("File stored successfully: %s", file_path)
